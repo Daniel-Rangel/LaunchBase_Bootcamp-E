@@ -1,0 +1,32 @@
+{% extends "layout.njk" %}
+{% block head %}
+<title>Portfolio - Daniel Rangel</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
+{% endblock %}
+{% block content %}
+  <div id="wrapper">
+    <h1>Aulas</h1>
+  </div>
+  <section class="cards">
+    {% for curso in cursos %}
+    <div class="card" id="{{curso.id}}">
+      <div class="car_image-container {{'featured-wrapper if curso.featured'}}">
+        <img src="https://img.youtube.com/vi/{{curso.id}}/maxresdefault.jpg" alt="Imagen de {{curso.title}}">
+        {% if curso.featured %}
+          <div class="featured">Featured</div>
+        {% endif %}
+      </div>
+      <div class="card_content">
+        <p>{{curso.title}}</p>
+      </div>
+      <div class="car_info">
+        <p>{{curso.duration}}</p>
+        <p class="card_price"> {{curso.price}} </p>
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+
+  <script src="scripts.js"></script>
+  {% endblock %}

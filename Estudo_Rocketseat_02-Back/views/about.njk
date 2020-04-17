@@ -1,0 +1,22 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+  <title>Sobre - {{sobre.nome}} </title>
+{% endblock %}
+
+{% block content %}
+
+<div id="wrapper">
+  <img src="{{sobre.avatar_id}}" alt="{{sobre.nome}}">
+  <h1>{{sobre.nome}}</h1>
+  <h2>{{sobre.titulo}}</h2>
+  <p>{{sobre.texto}}</p>
+</div>
+
+<div class="links" id="links-footer">
+  {% for link in sobre.links %}
+    <a href="{{link.url}}" target="_blank">{{link.nome}}</a>
+  {% endfor %}
+</div>
+
+{% endblock %}

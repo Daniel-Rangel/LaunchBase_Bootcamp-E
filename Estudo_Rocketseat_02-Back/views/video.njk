@@ -1,0 +1,27 @@
+{% extends "layout.njk" %}
+
+{% block head %}
+<title>{{curso.title}}</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+<div id="wrapper" class="video">
+  <h1>{{curso.title}}</h1>
+</div>
+<section class="video">
+  <div class="card" id="{{curso.id}}">
+    <div class="car_video-container {{'featured-wrapper if curso.featured'}}">
+      <iframe src="http://www.youtube.com/embed/{{curso.id}}" frameborder="0"></iframe>
+    </div>
+    <div class="card_content">
+      <p>{{curso.title}}</p>
+    </div>
+    <div class="car_info">
+      <p>{{curso.duration}}</p>
+      <p class="card_price"> {{curso.price}} </p>
+    </div>
+  </div>
+</section>
+{% endblock %}
