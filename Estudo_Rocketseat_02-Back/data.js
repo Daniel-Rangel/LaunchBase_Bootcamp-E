@@ -1,7 +1,7 @@
 module.exports = [
   {
     id: "p6d3RzhgQbA",
-    title: "Criando sua própria templete no React Native | Claudio Orlandi",
+    title: "Criando sua própria templete naaa React Native | Claudio Orlandi",
     duration: "07 min",
     price: "Free",
     featured : true
