@@ -1,0 +1,22 @@
+{
+  "instructors": [
+    {
+      "id": 1,
+      "avatar_url": "https://www.google.com",
+      "name": "Daniel",
+      "birth": 1590624000000,
+      "gender": "M",
+      "services": "1,2,3",
+      "created_at": 1590977074719
+    },
+    {
+      "id": 2,
+      "avatar_url": "https://www.google.com",
+      "name": "Daniel Fernandes Alves Rangel",
+      "birth": 1591142400000,
+      "gender": "M",
+      "services": "1,2,3",
+      "created_at": 1590978004393
+    }
+  ]
+}
