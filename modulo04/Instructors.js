@@ -1,5 +1,6 @@
 const fs = require('fs')
 const data = require('./data.json')
+const { age } = require('./utils')
 
 //show
 exports.show = function(req, res){
@@ -11,23 +12,7 @@ exports.show = function(req, res){
 
     if(!foudInstructor) return res.send("instructor not found")
 
-    function age(timestamp) {
-        const today = new Date() // dia atual
-        const brithDate = new Date(timestamp) // dia do anivesario
     
-        //informa quando anos tem
-        let age = today.getFullYear() - brithDate.getFullYear()
-        const month = today.getMonth() - brithDate.getMonth()
-        
-        if (month < 0 || 
-            month == 0 && 
-            today.getDate() <= brithDate.getDate()){
-            age = age -1
-        }
-        
-        return age
-    }
-
     const instructor = {
         ...foudInstructor,
         age: age(foudInstructor.birth),
