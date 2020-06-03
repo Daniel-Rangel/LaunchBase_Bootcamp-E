@@ -17,7 +17,7 @@ exports.show = function(req, res){
         ...foudInstructor,
         age: age(foudInstructor.birth),
         services: foudInstructor.services.split(','),
-        created_at:''
+        created_at: new Intl.DateTimeFormat('pt-BR').format(foudInstructor.created_at)
     }
 
 
