@@ -1,11 +1,13 @@
 const express = require("express")
 const nunjucks = require("nunjucks")
 const routes = require('./routes')
+const methodOverride = require('method-override')
 
 const server = express()
 
 server.use(express.urlencoded({ extended: true })) //faz o req.body funcionar
 server.use(express.static("puplic"))
+server.use(methodOverride('_method'))
 server.use(routes) // use é usado como middleware, que é algo que ficar entre o ponto A e B
 
 //configurando o nunjucks
