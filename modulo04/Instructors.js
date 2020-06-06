@@ -106,3 +106,19 @@ exports.put = function(req,res){
 }
 
 //delet
+exports.delete = function (req, res){
+    const { id } = req.body
+
+    const filteredInstructors = data.instructors.filter(function(instructor){
+        return instructor.id != id
+    })
+
+    data.instructors = filteredInstructors
+
+    fs.writeFile('data.json', JSON.stringify(data,null, 2), function(err){
+        if (err) return res.send('erro ao deletear')
+    })
+
+    return res.redirect('/instructors')
+
+}

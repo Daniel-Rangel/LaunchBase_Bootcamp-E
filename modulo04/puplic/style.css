@@ -179,3 +179,11 @@ a.button{
   text-align: center;
   text-decoration: none;
 }
+
+/* Delete */
+
+ #btnDelete button[type="submit"]{
+  margin-top: 10px;
+  display: inline-block;
+  background-color: lightcoral;
+}
