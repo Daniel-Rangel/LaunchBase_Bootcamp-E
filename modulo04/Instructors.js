@@ -3,6 +3,9 @@ const data = require('./data.json')
 const { age , date} = require('./utils')
 const Intl = require('intl')
 
+exports.index = function(req, res){
+    return res.render('instructors/index', {instructors : data.instructors})
+}
 
 //creat
 exports.post = function(req,res){
@@ -70,7 +73,8 @@ exports.edit = function(req , res){
 
     const instructor = {
         ...foudInstructor,
-        birth: date(foudInstructor.birth)
+        birth: date(foudInstructor.birth),
+        id: Number(req.body.id)
     }
     
     return res.render('instructors/edit', { instructor  })
@@ -80,7 +84,7 @@ exports.edit = function(req , res){
 exports.put = function(req,res){
     const { id } = req.body
     let index = 0
-
+    console.log(id)
     const foudInstructor = data.instructors.find(function(instructor, foundIndex){
         if(id == instructor.id){
             index = foundIndex
@@ -88,7 +92,7 @@ exports.put = function(req,res){
         }
     })
 
-    if(!foudInstructor) return res.send("instructor not found")
+    if(!foudInstructor) return res.send("instructor not found-edit")
 
     const instructor = {
         ...foudInstructor,
@@ -120,5 +124,4 @@ exports.delete = function (req, res){
     })
 
     return res.redirect('/instructors')
-
 }
