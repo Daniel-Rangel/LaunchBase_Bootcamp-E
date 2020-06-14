@@ -61,7 +61,7 @@ exports.show = function(req, res){
     return res.render("instructors/show", { instructor  })
 }
 
-//edit
+//mostra um usuario cadastrado para edição
 exports.edit = function(req , res){
     const { id } = req.params
 
@@ -74,17 +74,16 @@ exports.edit = function(req , res){
     const instructor = {
         ...foudInstructor,
         birth: date(foudInstructor.birth),
-        id: Number(req.body.id)
     }
     
-    return res.render('instructors/edit', { instructor  })
+    return res.render('instructors/edit', { instructor })
 }
 
 //put
 exports.put = function(req,res){
-    const { id } = req.body
-    let index = 0
+    const { id } =  req.body
     console.log(id)
+    let index = 0
     const foudInstructor = data.instructors.find(function(instructor, foundIndex){
         if(id == instructor.id){
             index = foundIndex
@@ -97,9 +96,9 @@ exports.put = function(req,res){
     const instructor = {
         ...foudInstructor,
         ...req.body,
-        birth: Date.parse(req.body.birth)
+        birth: Date.parse(req.body.birth),
+        id: Number(req.body.id)
     }
-
     data.instructors[index] = instructor
 
     fs.writeFile('data.json', JSON.stringify(data, null, 2), function(err){
@@ -112,7 +111,7 @@ exports.put = function(req,res){
 //delet
 exports.delete = function (req, res){
     const { id } = req.body
-
+    console.log(id)
     const filteredInstructors = data.instructors.filter(function(instructor){
         return instructor.id != id
     })
