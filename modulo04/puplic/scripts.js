@@ -1,12 +1,12 @@
-const modalOverlay = document.querySelector(".modal_verlay")
-const cards = document.querySelectorAll(".card")
+const currentPage = location.pathname // traz informação do local de url
+const menuItens = document.querySelectorAll('header .links a')
 
-for(let card of cards) {
-  card.addEventListener('click', function(){
-    const videoId = card.getAttribute("id")
-    window.location.href = `/video?id=${videoId}` 
-  })
+// faz a verificação de qual item está
+for(let item of menuItens){
+  if(currentPage.includes(item.getAttribute('href'))){
+    item.classList.add('active')
+  }
 }
 
-
-// location usado para retorna o href (URL) da página atual. informando a rota
+//includes faz a leitura de um link e retorna um valor true caso tenha endentro da url
+console.log('http://localhost:3000/members'.includes('membres'))

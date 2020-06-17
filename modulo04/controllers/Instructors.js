@@ -1,13 +1,37 @@
 const fs = require('fs')
-const data = require('./data.json')
-const { age , date} = require('./utils')
+const data = require('../data.json')
+const { age , date} = require('../utils')
 const Intl = require('intl')
 
 exports.index = function(req, res){
     return res.render('instructors/index', {instructors : data.instructors})
 }
 
-//creat
+exports.create = function(req, res){
+    return res.render('instructors/create')
+}
+
+exports.show = function(req, res){
+    const { id } = req.params
+
+    const foudInstructor = data.instructors.find(function(instructor){
+        return instructor.id == id
+    })
+
+    if(!foudInstructor) return res.send("instructor not found")
+
+    
+    const instructor = {
+        ...foudInstructor,
+        age: age(foudInstructor.birth),
+        services: foudInstructor.services.split(','),
+        created_at: new Intl.DateTimeFormat('pt-BR').format(foudInstructor.created_at)
+    }
+
+
+    return res.render("instructors/show", { instructor  })
+}
+
 exports.post = function(req,res){
     /* vlaidação */
     const keys = Object.keys(req.body)
@@ -39,29 +63,6 @@ exports.post = function(req,res){
     })
 }
 
-//show
-exports.show = function(req, res){
-    const { id } = req.params
-
-    const foudInstructor = data.instructors.find(function(instructor){
-        return instructor.id == id
-    })
-
-    if(!foudInstructor) return res.send("instructor not found")
-
-    
-    const instructor = {
-        ...foudInstructor,
-        age: age(foudInstructor.birth),
-        services: foudInstructor.services.split(','),
-        created_at: new Intl.DateTimeFormat('pt-BR').format(foudInstructor.created_at)
-    }
-
-
-    return res.render("instructors/show", { instructor  })
-}
-
-//mostra um usuario cadastrado para edição
 exports.edit = function(req , res){
     const { id } = req.params
 
@@ -79,7 +80,6 @@ exports.edit = function(req , res){
     return res.render('instructors/edit', { instructor })
 }
 
-//put
 exports.put = function(req,res){
     const { id } =  req.body
     console.log(id)
@@ -108,7 +108,6 @@ exports.put = function(req,res){
     res.redirect(`/instructors/${id}`)
 }
 
-//delet
 exports.delete = function (req, res){
     const { id } = req.body
     console.log(id)
