@@ -8,5 +8,5 @@ for(let item of menuItens){
   }
 }
 
-//includes faz a leitura de um link e retorna um valor true caso tenha endentro da url
+//includes faz a leitura de um link e retorna um valor true caso a instring exista dentro da url
 console.log('http://localhost:3000/members'.includes('membres'))
