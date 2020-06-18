@@ -73,8 +73,7 @@ exports.show = function(req, res){
         birth: date(foudMember.birth).birthDay,
     }
 
-
-    return res.render("members/show", { member  })
+    return res.render("members/show", { member })
 }
 
 exports.edit = function(req , res){
@@ -88,7 +87,7 @@ exports.edit = function(req , res){
 
     const member = {
         ...foudMember,
-        birth: date(foudMember.birth),
+        birth: date(foudMember.birth).iso,
     }
     
     return res.render('members/edit', { member })
