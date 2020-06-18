@@ -11,6 +11,53 @@ exports.create = function(req, res){
     return res.render('members/create')
 }
 
+exports.post = function(req,res){
+    /* vlaidação */
+    const keys = Object.keys(req.body)
+    
+    for(key of keys){
+        if(req.body[key] == ""){
+            return res.send("por favor, preencha todos os campos")
+        }
+    }
+    /* descontrução de array */
+    let {
+        avatar_url,
+        name,
+        email,
+        birth, 
+        gender,
+        blood,
+        weight,
+        height
+    } = req.body
+
+    /* tratamento de dados adicionando mais informação */
+    birth = Date.parse(birth)
+
+    let id = 1
+    const lastMember = data.members[data.members.length - 1]
+    if(lastMember){
+        id = lastMember.id + 1
+    }
+    /* organizando dados para ser enviados */
+    data.members.push({
+        id,
+        avatar_url,
+        name,
+        email,
+        birth, 
+        gender,
+        blood,
+        weight,
+        height
+    })
+    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
+        if(err) return res.send("erro ao escrever")
+        return res.redirect(`/members/${id}`)
+    })
+}
+
 exports.show = function(req, res){
     const { id } = req.params
 
@@ -28,37 +75,6 @@ exports.show = function(req, res){
 
 
     return res.render("members/show", { member  })
-}
-
-exports.post = function(req,res){
-    /* vlaidação */
-    const keys = Object.keys(req.body)
-    
-    for(key of keys){
-        if(req.body[key] == ""){
-            return res.send("por favor, preencha todos os campos")
-        }
-    }
-    /* descontrução de array */
-    let {avatar_url, name, birth, gender, services} = req.body
-    /* tratamento de dados adicionando mais informação */
-    birth = Date.parse(birth)
-    const created_at = Date.now()
-    const id = Number(data.members.length + 1)
-    /* organizando dados para ser enviados */
-    data.members.push({
-        id,
-        avatar_url,
-        name,
-        birth,
-        gender,
-        services,
-        created_at
-    })
-    fs.writeFile("data.json", JSON.stringify(data, null, 2), function(err){
-        if(err) return res.send("erro ao escrever")
-        return res.redirect("/members")
-    })
 }
 
 exports.edit = function(req , res){
