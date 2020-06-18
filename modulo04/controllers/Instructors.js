@@ -11,27 +11,6 @@ exports.create = function(req, res){
     return res.render('instructors/create')
 }
 
-exports.show = function(req, res){
-    const { id } = req.params
-
-    const foudInstructor = data.instructors.find(function(instructor){
-        return instructor.id == id
-    })
-
-    if(!foudInstructor) return res.send("instructor not found")
-
-    
-    const instructor = {
-        ...foudInstructor,
-        age: age(foudInstructor.birth),
-        services: foudInstructor.services.split(','),
-        created_at: new Intl.DateTimeFormat('pt-BR').format(foudInstructor.created_at)
-    }
-
-
-    return res.render("instructors/show", { instructor  })
-}
-
 exports.post = function(req,res){
     /* vlaidação */
     const keys = Object.keys(req.body)
@@ -63,6 +42,27 @@ exports.post = function(req,res){
     })
 }
 
+exports.show = function(req, res){
+    const { id } = req.params
+
+    const foudInstructor = data.instructors.find(function(instructor){
+        return instructor.id == id
+    })
+
+    if(!foudInstructor) return res.send("instructor not found")
+
+    
+    const instructor = {
+        ...foudInstructor,
+        age: age(foudInstructor.birth),
+        services: foudInstructor.services.split(','),
+        created_at: new Intl.DateTimeFormat('pt-BR').format(foudInstructor.created_at)
+    }
+
+
+    return res.render("instructors/show", { instructor  })
+}
+
 exports.edit = function(req , res){
     const { id } = req.params
 
@@ -74,7 +74,7 @@ exports.edit = function(req , res){
 
     const instructor = {
         ...foudInstructor,
-        birth: date(foudInstructor.birth),
+        birth: date(foudInstructor.birth).iso,
     }
     
     return res.render('instructors/edit', { instructor })
