@@ -30,3 +30,23 @@ const texto = `
 
 //Operadores relacionais e comparativos
 
+/* console.log(5 == 5 || 6 == 6) //true
+console.log(5 == 5 || 6 != 6) // true
+console.log(5 != 5 || 6 != 6) // false
+
+console.log(5 == 5 && 6 == 6) // treu
+console.log(5 == 5 && 6 != 6) // false
+console.log(5 != 5 && 6 != 6) // false
+
+console.log(!(5 > 4)) // false
+console.log(!(5 < 4)) // true
+
+const idade = 17
+
+if(!(idade > 18) || idade === 17){
+    console.log('bloqueio de entrada')
+}else{
+    console.log('deixar entrar')
+}
+
+ */
