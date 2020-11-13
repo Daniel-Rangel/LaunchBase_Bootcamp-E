@@ -114,3 +114,38 @@ console.log(aluno1.nome) */
 ]
 
 console.log(alunos[1].nome) */
+
+
+/* desafio */
+
+/* const empresa = {
+    nome: "Rocketseat",
+    cor: "Roxo",
+    foco: "Pragramação",
+    endereco: {
+        logradouro: "Rua Guilherme Gembala",
+        numero: 260
+    }
+}
+
+console.log(`
+    A empresa 
+    ${empresa.nome} está localizada em 
+    ${empresa.endereco.logradouro},
+    ${empresa.endereco.numero}
+    `) */
+
+/* desafio 2*/
+
+const programador = {
+    nome: "Daniel",
+    idade: "30",
+    tecnologia: [
+        {nome : "HTML", especialidade : "web" },
+        {nome: "CSS", especialidade: "web"},
+        {nome: "Javascript", especialidade: "web"}
+    ]
+}
+
+console.log(`
+    O usuário ${programador.nome} tem ${programador.idade} anos e usa o ${programador.tecnologia[2].nome} com especialidade em ${programador.tecnologia[2].especialidade}`)
