@@ -1,7 +1,7 @@
 //Basico 
 
 //Faxendo calculos 
-const aluno1 = "Lucas"
+/* const aluno1 = "Lucas"
 const notaAluno1 = 5.0
 
 const aluno2 = "Daniel"
@@ -18,7 +18,7 @@ const texto = `
     ${aluno2} nota ${notaAluno2}, 
     ${aluno3} nota ${notaAluno3}.
     A media da Sala é ${media.toFixed(2)}.
-    `
+    ` */
 //console.log(texto)
 
 /* condicionais */
@@ -65,7 +65,7 @@ if(!(idade > 18) || idade === 17){
  */
  /* apoosentadoria calc */
 
- const nome1 = "Silva"
+/*  const nome1 = "Silva"
  const sexo = "F"
  const idade = 48
  const contribuicao = 23
@@ -75,5 +75,42 @@ if(sexo == "F" && (contribuicao + idade) >= 85){
     console.log(`${nome1},você pode se aposentar!`)
 }else{
     console.log(`${nome1},você não pode se aposentar!`)
+} */
+
+/* objetos */
+
+/* const aluno1 = {
+    nome:"Mayk",
+    nota: 8.3
 }
 
+const aluno2 = {
+    nome:"Lucas",
+    nota: 7.1
+}
+
+const aluno3 = {
+    nome :"Daniel",
+    nota : 10
+}
+
+console.log(aluno1.nome) */
+
+/* vetores */
+
+/* const alunos = [
+    {
+        nome:"Mayk",
+        nota: 8.3
+    },
+    {
+        nome:"Lucas",
+        nota: 7.1
+    },
+    {
+        nome :"Daniel",
+        nota : 10
+    }
+]
+
+console.log(alunos[1].nome) */
