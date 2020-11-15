@@ -137,7 +137,7 @@ console.log(`
 
 /* desafio 2*/
 
-const programador = {
+/* const programador = {
     nome: "Daniel",
     idade: "30",
     tecnologia: [
@@ -148,4 +148,57 @@ const programador = {
 }
 
 console.log(`
-    O usuário ${programador.nome} tem ${programador.idade} anos e usa o ${programador.tecnologia[2].nome} com especialidade em ${programador.tecnologia[2].especialidade}`)
+    O usuário 
+    ${programador.nome} tem 
+    ${programador.idade} anos e usa o 
+    ${programador.tecnologia[2].nome} com especialidade em 
+    ${programador.tecnologia[2].especialidade}`) */
+
+
+    /* fução exemplo */
+    const alunosA = [
+        {
+            nome:"Mayk",
+            nota: 8.3
+        },
+        {
+            nome:"Lucas",
+            nota: 7.1
+        },
+        {
+            nome :"Daniel",
+            nota : 10
+        }
+    ]
+
+    const alunosB = [
+        {
+            nome:"Mayk2",
+            nota: 5
+        },
+        {
+            nome:"Lucas3",
+            nota: 2
+        },
+        {
+            nome :"Daniel4",
+            nota : 8
+        }
+    ]
+
+
+function calcularMedia (valor2){
+
+    let media = 0
+ 
+    for(let i = 0; i < valor2.length; i++ ){
+        media += valor2[i].nota 
+    }
+    
+    return media / valor2.length
+}
+
+
+console.log(`Media da Tuma B ${calcularMedia(alunosB)}`)
+console.log(`Media da Tuma A ${calcularMedia(alunosA).toFixed(2)}`)
+
