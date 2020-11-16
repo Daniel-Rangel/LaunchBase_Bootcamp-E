@@ -156,7 +156,7 @@ console.log(`
 
 
     /* fução exemplo */
-    const alunosA = [
+   /*  const alunosA = [
         {
             nome:"Mayk",
             nota: 8.3
@@ -202,3 +202,31 @@ function calcularMedia (valor2){
 console.log(`Media da Tuma B ${calcularMedia(alunosB)}`)
 console.log(`Media da Tuma A ${calcularMedia(alunosA).toFixed(2)}`)
 
+ */
+
+ /* desafio 3 */
+ 
+ /* const usuarios = [
+    { nome: "Carlos", tecnologias: ["HTML", "CSS"] },
+    { nome: "Jasmine", tecnologias: ["JavaScript", "CSS"] },
+    { nome: "Tuane", tecnologias: ["HTML", "Node.js"] }
+  ]; */
+
+  /* for (usuario of usuarios  ){
+      console.log(`${usuario.nome} trabalha com ${usuario.tecnologias}\n`)
+  } */
+
+  /* function checaSeUsuarioUsaCSS(usuario) {
+    if(usuario == "CSS"){
+        return true
+    }else{
+        return false
+    }
+  }
+
+
+for( usuario of usuarios){
+    for(uso of usuario.tecnologias){
+        console.log( checaSeUsuarioUsaCSS(uso) )
+    }
+} */
