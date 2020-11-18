@@ -233,7 +233,7 @@ for( usuario of usuarios){
 
 /* soma de sepesas e receitas */
 
-const usuarios = [
+/* const usuarios = [
     {
       nome: "Salvio",
       receitas: [115.3, 48.7, 98.3, 14.5],
@@ -251,5 +251,25 @@ const usuarios = [
     }
   ];
 
-  function calculaSaldo(receitas, despesas) {
-  }
+for(usuario of usuarios){
+    let calculo = calculaSaldo(usuario.receitas, usuario.despesas)
+    if( calculo >= 1){
+        console.log(`${usuario.nome} Possi saldo POSITIVO de ${calculo.toFixed(2)}`)
+    }else{
+        console.log(`${usuario.nome} Possi saldo NEGATIVO de ${calculo.toFixed(2)}`)
+    }
+}
+
+function calculaSaldo(receitas, despesas) {
+    let rec = somaNumeros(receitas)
+    let desp = somaNumeros(despesas)
+    return rec - desp
+}
+
+function somaNumeros(numeros) {
+    let soma = 0
+    for(numero of numeros){
+        soma += numero
+    }
+    return soma
+} */
