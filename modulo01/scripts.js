@@ -273,3 +273,31 @@ function somaNumeros(numeros) {
     }
     return soma
 } */
+
+let num1 = 1
+const num2 = 2
+var num3 = 3
+
+num3 = 5
+num1 = "2"
+
+
+let pessoas = [
+    {
+        nome: 'Lucas',
+        peso : 80,
+        altura : 170,
+    },
+    "caixa",
+    "repositor"
+]
+
+const pessoa = {
+    nome: 'Lucas',
+    peso : 80,
+    altura : 170,
+}
+
+pessoa.nome
+
+console.log(pessoas[2])
