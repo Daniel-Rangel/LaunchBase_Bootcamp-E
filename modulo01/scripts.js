@@ -274,30 +274,30 @@ function somaNumeros(numeros) {
     return soma
 } */
 
-let num1 = 1
-const num2 = 2
-var num3 = 3
+const user = {
+    name: "Mariana",
+    transactions: [],
+    balance: 0
+};
 
-num3 = 5
-num1 = "2"
-
-
-let pessoas = [
-    {
-        nome: 'Lucas',
-        peso : 80,
-        altura : 170,
-    },
-    "caixa",
-    "repositor"
-]
-
-const pessoa = {
-    nome: 'Lucas',
-    peso : 80,
-    altura : 170,
+function createTransaction (trasacao){
+    if(trasacao.type == "credit"){
+        user.balance += trasacao.value
+    }else if(trasacao.type == "debit"){
+        user.balance -= trasacao.value
+    }else{
+        return console.log("não adicionado o balance")
+    }
+    user.transactions.push(trasacao)
+    return console.log("trasação efetuada")
 }
 
-pessoa.nome
+createTransaction({ type: "credit", value: 50 })
+createTransaction({ type: "credit", value: 120 })
+createTransaction({ type: "debit", value: 80 })
+createTransaction({ type: "debit", value: 30 })
 
-console.log(pessoas[2])
+console.log(user.transactions)
+console.log(user.balance)
+
+
