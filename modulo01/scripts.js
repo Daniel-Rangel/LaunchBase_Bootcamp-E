@@ -289,13 +289,28 @@ function createTransaction (trasacao){
         return console.log("não adicionado o balance")
     }
     user.transactions.push(trasacao)
-    return console.log("trasação efetuada")
+}
+
+function getHigherTransactionByType(typeTransacao){
+    let maior = {type: " ", value : 0}
+
+    for(trans of user.transactions){
+        if(trans.type == typeTransacao){
+            if(maior.value < trans.value){
+                maior.value = trans.value
+            }
+        }
+    }
+
+    return console.log(maior.value)
 }
 
 createTransaction({ type: "credit", value: 50 })
 createTransaction({ type: "credit", value: 120 })
 createTransaction({ type: "debit", value: 80 })
 createTransaction({ type: "debit", value: 30 })
+
+getHigherTransactionByType('credit')
 
 console.log(user.transactions)
 console.log(user.balance)
