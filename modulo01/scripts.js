@@ -305,14 +305,49 @@ function getHigherTransactionByType(typeTransacao){
     return console.log(maior.value)
 }
 
+function getAverageTransactionValue(){
+    /* Crie uma função chamada getAverageTransactionValue 
+    que retorna o valor médio das transações de um usuário 
+    independente do seu tipo: */
+
+    let media = 0
+    let soma = 0
+
+    for(trans of user.transactions){
+        soma += trans.value
+    }
+    return console.log(soma / user.transactions.length)
+}
+
+
+function getTransactionsCount(){
+    let nuemroTansacoes = {credit : 0, debit: 0}
+    for(trans of user.transactions){
+        if(trans.type == "credit"){
+            nuemroTansacoes.credit ++
+        }
+        if(trans.type == "debit"){
+            nuemroTansacoes.debit ++
+        }
+    }
+
+    return console.log(nuemroTansacoes)
+}
+
 createTransaction({ type: "credit", value: 50 })
 createTransaction({ type: "credit", value: 120 })
 createTransaction({ type: "debit", value: 80 })
 createTransaction({ type: "debit", value: 30 })
 
-getHigherTransactionByType('credit')
-
-console.log(user.transactions)
 console.log(user.balance)
+
+getHigherTransactionByType('credit')
+getHigherTransactionByType('debit')
+
+getAverageTransactionValue()
+
+getTransactionsCount()
+
+
 
 
