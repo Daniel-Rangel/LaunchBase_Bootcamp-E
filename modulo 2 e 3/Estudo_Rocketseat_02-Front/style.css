@@ -13,9 +13,10 @@
 }
 body{
   background: #282a36;
-  font-family: 'Source Sans Pro', sans-serif;
   color: white;
+  font-family: 'Source Sans Pro', sans-serif;
 }
+
 header{
   padding: 32px;
   border-bottom: 1px solid #333;
