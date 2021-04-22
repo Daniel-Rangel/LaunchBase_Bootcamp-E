@@ -16,3 +16,5 @@
 -   Organizando pastas
 -   Animações com Css
 -   Aperfeiçoando conseito de rotas    
+
+> Revisando todos o que foi estudando com pratica em outro projeto interno, e revendo os videos.
