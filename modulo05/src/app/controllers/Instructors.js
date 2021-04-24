@@ -4,10 +4,17 @@ const Instructors = require('../models/instructor')
 
 module.exports = {
     index(req,res) {
-
-        Instructors.all(function(instructors){
-            return res.render('instructors/index', {instructors})
-        })
+        const { filter } = req.query
+        
+        if(filter){
+            Instructors.findBy(filter, function(instructors){
+                return res.render('instructors/index', {instructors, filter})
+            })
+        }else{
+            Instructors.all(function(instructors){
+                return res.render('instructors/index', {instructors})
+            })
+        }
         
     },
     create(req,res) {
