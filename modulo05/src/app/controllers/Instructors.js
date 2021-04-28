@@ -17,7 +17,11 @@ module.exports = {
             limit,
             offset,
             callback(instructors){
-                return res.render('instructors/index', {instructors, filter})
+                const pagenation = {
+                    total: Math.ceil(instructors[0].total / limit),
+                    page
+                }
+                return res.render('instructors/index', {instructors,pagenation,filter })
             }
         }
 
