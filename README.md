@@ -17,4 +17,7 @@
 -   Animações com Css
 -   Aperfeiçoando conseito de rotas    
 
+
+### Pausa para entregar trabalho de faculdade
+
 > Revisando todos o que foi estudando com pratica em outro projeto interno, e revendo os videos.
